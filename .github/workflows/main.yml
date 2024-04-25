@@ -1,0 +1,47 @@
+name: Docker Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      
+    - name: Get Commit Hash
+      id: get_commit_hash
+      run: echo "::set-output name=COMMIT_HASH::$(git rev-parse --short=8 $GITHUB_SHA)"
+    
+    - name: Set tag on manifest
+      run: |
+         yq e '.image.tag = "${{ steps.get_commit_hash.outputs.COMMIT_HASH }}"' -i ./helm/apigo/values.yaml 
+
+    - name: Commiting the new tag
+      run: |
+         git config user.name "iriscafe"
+         git config user.email ${{ secrets.EMAIL }}
+
+         git add ./helm/apigo/values.yaml
+         git commit -m "Update image tag to ${{ steps.get_commit_hash.outputs.COMMIT_HASH }} [skip ci]"
+         git remote set-url origin https://iriscafe:${{ secrets.GITHUB_TOKEN }}@github.com/iriscafe/desafio-devops.git
+         git push --set-upstream origin main
+         
+    - name: Build Docker Image
+      run: docker build -t iriscafe50/api-golang .
+  
+    - name: Tag Docker Image with Commit Hash
+      run: docker tag iriscafe50/api-golang iriscafe50/api-golang:${{ steps.get_commit_hash.outputs.COMMIT_HASH }}
+
+    - name: Push Docker Image with Commit Hash
+      run: |
+        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        docker push iriscafe50/app_python:${{ steps.get_commit_hash.outputs.COMMIT_HASH }}
+         
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
