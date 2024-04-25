@@ -1,9 +1,9 @@
-name: Docker Build - ci
+name: Docker Build
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -28,11 +28,11 @@ jobs:
 
          git add ./helm/my-python-app/values.yaml
          git commit -m "Update image tag to ${{ steps.get_commit_hash.outputs.COMMIT_HASH }} [skip ci]"
-         git remote set-url origin https://github.com/iriscafe/desafio-devops.git
-         git push -u origin master
+         git push origin master
          
     - name: Build Docker Image
-      run: docker build -t iriscafe50/app_python .
+      run: docker build -t iriscafe50/app_python
+       .
   
     - name: Tag Docker Image with Commit Hash
       run: docker tag iriscafe50/app_python iriscafe50/app_python:${{ steps.get_commit_hash.outputs.COMMIT_HASH }}
