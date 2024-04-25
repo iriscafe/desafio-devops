@@ -58,10 +58,10 @@ metadata:
 stringData:
   type: git
   url: git@github.com:iriscafe/devops-test.git
-  sshPrivateKey: |
+  sshPrivateKey: "|
 -----BEGIN OPENSSH PRIVATE KEY-----
 
------END OPENSSH PRIVATE KEY-----
+-----END OPENSSH PRIVATE KEY-----"
 YAML  
 }
 resource "kubectl_manifest" "application" {
