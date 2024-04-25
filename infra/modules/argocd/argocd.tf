@@ -16,36 +16,6 @@ resource "helm_release" "argocd" {
   values = [file("${path.module}/values.yaml")]
 }
 
-resource "kubernetes_ingress_v1" "argo_cd_ingress" {
-  depends_on = [helm_release.argocd]
-
-  metadata {
-    name      = "argocd"
-    namespace = "argocd"
-  }
-
-  spec {
-    ingress_class_name = "nginx"
-    rule {
-      http {
-        path {
-          path_type = "Prefix"
-          path      = "/"
-          backend {
-            service {
-              name = "argocd-server"
-              port {
-                number = 80
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-
 resource "kubectl_manifest" "argosecret" {
   yaml_body = <<YAML
 apiVersion: v1
