@@ -19,7 +19,7 @@ jobs:
     
     - name: Set tag on manifest
       run: |
-         yq e '.image.tag = "${{ steps.get_commit_hash.outputs.COMMIT_HASH }}"' -i ./helm/apigo/values.yaml 
+         yq e '.image.tag = "${{ steps.get_commit_hash.outputs.COMMIT_HASH }}"' -i ./helm/my-python-app/values.yaml 
 
     - name: Commiting the new tag
       run: |
