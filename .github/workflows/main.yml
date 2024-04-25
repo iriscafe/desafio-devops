@@ -28,7 +28,7 @@ jobs:
 
          git add ./helm/apigo/values.yaml
          git commit -m "Update image tag to ${{ steps.get_commit_hash.outputs.COMMIT_HASH }} [skip ci]"
-         git remote set-url origin https://iriscafe:${{ secrets.GITHUB_TOKEN }}@github.com/iriscafe/desafio-devops.git
+         git remote set-url origin https://iriscafe:${{ secrets.TOKEN }}@github.com/iriscafe/desafio-devops.git
          git push --set-upstream origin main
          
     - name: Build Docker Image
