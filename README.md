@@ -9,16 +9,14 @@ terraform apply
 ```
 terraform apply -target=module.argocd
 ```
-3. com isso teremos a infra de pé.
-
-5. acesse o painel do argocd-server e gere a senha admin
+3. acesse o painel do argocd-server e gere a senha admin
 
 - argoCD: http://172.18.255.200/
 
 ```
  argocd admin initial-password -n argocd
 ```
-6. sincronize os apps para o deploy dos charts
+4. sincronize os apps para o deploy dos charts
 aplicação: http://172.18.255.202:8000/
 
 Grafana: http://172.18.255.201:3000/
