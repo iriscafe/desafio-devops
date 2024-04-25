@@ -1,9 +1,9 @@
-name: Docker Build
+name: Docker Build - ci
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
