@@ -3,7 +3,7 @@ name: Docker Build
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -25,11 +25,12 @@ jobs:
       run: |
          git config user.name "iriscafe"
          git config user.email ${{ secrets.EMAIL }}
+         git pull
          git add ./helm/my-python-app/values.yaml
          git commit -m "Update image tag to ${{ steps.get_commit_hash.outputs.COMMIT_HASH }} [skip ci]"
          git push origin master
          
-
+         
     - name: Build Docker Image
       run: docker build -t iriscafe50/app_python
        .
