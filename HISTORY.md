@@ -7,8 +7,8 @@ Mas ao perceber que na entrega devido aos custos eu não entregaria as aplicaç�
 Fluxograma que idealizei:
 !['](https://github.com/iriscafe/devops-test/blob/master/imgs/cicd-workflow.gif?raw=true)
 
-Kind:
-ll
+Kind feito:
+!['](https://github.com/iriscafe/desafio-devops/blob/master/imgs/cicd-kind.png?raw=true)
 
 ## Tecnologias Escolhidas e Justificativas:
 - Iniciei criando um bind para expor o gunicorn no dockerfile e enviando o build para o dockerhub.
