@@ -2,7 +2,8 @@
 
 ## Objetivo:
 - Desenvolver e administrar um ambiente Kubernetes altamente eficaz na AWS, seguindo as melhores práticas de DevOps.
-Mas ao perceber que na entrega devido aos custos eu não entregaria as aplicações funcionando, então subi um kind e refiz o projeto.
+
+Eu havia desenvolvido usando serviços da aws https://github.com/iriscafe/devops-test nesse projeto, mas ao perceber que na entrega devido aos custos eu não entregaria as aplicações funcionando, então subi um kind e refiz o projeto.
 
 Fluxograma que idealizei:
 !['](https://github.com/iriscafe/devops-test/blob/master/imgs/cicd-workflow.gif?raw=true)
