@@ -29,7 +29,7 @@ jobs:
          git add ./helm/my-python-app/values.yaml
          git commit -m "Update image tag to ${{ steps.get_commit_hash.outputs.COMMIT_HASH }} [skip ci]"
          git remote set-url origin https://iriscafe:${{ secrets.TOKEN }}@github.com/iriscafe/desafio-devops.git
-         git push --set-upstream origin main
+         git push --set-upstream origin master
          
     - name: Build Docker Image
       run: docker build -t iriscafe50/app_python .
