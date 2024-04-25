@@ -30,6 +30,7 @@ jobs:
          git commit -m "Update image tag to ${{ steps.get_commit_hash.outputs.COMMIT_HASH }} [skip ci]"
          git push origin master
          
+         
     - name: Build Docker Image
       run: docker build -t iriscafe50/app_python
        .
