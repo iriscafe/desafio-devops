@@ -1,0 +1,23 @@
+replicaCount: 1
+image:
+  repository: iriscafe50/app_python
+  tag: 
+service:
+  name: app
+  namespace:
+    create: true
+  type: ClusterIP
+  port: 8000
+ingress:
+  enabled: false
+  hosts:
+    - host: app.local
+      paths:
+        - /api/comment/
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "250m"
+  limits:
+    memory: "128Mi"
+    cpu: "500m"

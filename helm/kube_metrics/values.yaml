@@ -1,0 +1,10 @@
+image:
+  repository: https://kubernetes.github.io/kube-state-metrics
+  pullPolicy: IfNotPresent
+  tag: ""
+
+kubeStateMetrics:
+  enabled: true
+  service:
+    enabled: true
+    type: ClusterIP
