@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: iriscafe50/app_python
-  tag: 634fba92
+  tag: 1079c63c
 service:
   name: app
   namespace:
