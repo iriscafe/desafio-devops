@@ -27,7 +27,7 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 stringData:
   type: git
-  url: git@github.com:iriscafe/devops-test.git
+  url: git@github.com:iriscafe/desafio-devops.git
   sshPrivateKey: "|
 -----BEGIN OPENSSH PRIVATE KEY-----
 
@@ -49,7 +49,7 @@ spec:
     server: "https://kubernetes.default.svc"
   source:
     path: "helm/my-python-app"
-    repoURL: "git@github.com:iriscafe/devops-test.git"
+    repoURL: "git@github.com:iriscafe/desafio-devops.git"
     targetRevision: "HEAD"
     helm:
       valueFiles:
@@ -89,7 +89,7 @@ spec:
     server: "https://kubernetes.default.svc"
   source:
     path: "helm/grafana"
-    repoURL: "git@github.com:iriscafe/devops-test.git"
+    repoURL: "git@github.com:iriscafe/desafio-devops.git"
     targetRevision: "HEAD"
     helm:
       valueFiles:
@@ -129,7 +129,7 @@ spec:
     server: "https://kubernetes.default.svc"
   source:
     path: "helm/prometheus"
-    repoURL: "git@github.com:iriscafe/devops-test.git"
+    repoURL: "git@github.com:iriscafe/desafio-devops.git"
     targetRevision: "HEAD"
     helm:
       valueFiles:
@@ -169,7 +169,7 @@ spec:
     server: "https://kubernetes.default.svc"
   source:
     path: "helm/kube_metrics"
-    repoURL: "git@github.com:iriscafe/devops-test.git"
+    repoURL: "git@github.com:iriscafe/desafio-devops.git"
     targetRevision: "HEAD"
     helm:
       valueFiles:
