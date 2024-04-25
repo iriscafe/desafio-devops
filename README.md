@@ -17,11 +17,12 @@ terraform apply -target=module.argocd
  argocd admin initial-password -n argocd
 ```
 4. sincronize os apps para o deploy dos charts
-aplicação: http://172.18.255.202:8000/
 
-Grafana: http://172.18.255.201:3000/
+| aplicação: http://172.18.255.202:8000/
 
-Prometheus: http://http://172.18.255.203:8080/
+| Grafana: http://172.18.255.201:3000/
+
+| Prometheus: http://http://172.18.255.203:8080/
 
 * Criando e listando comentários por matéria
 
