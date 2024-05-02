@@ -4,6 +4,18 @@ terraform plan
 terraform apply
 ```
 
+1.1 Ajuste o ipadressPool no modules/metallb/config.yaml de acordo com o ip da sua máquina, para ter essa informação basta rodar:
+
+```
+ip a s
+```
+
+1.2 E o comando a seguir para gerar um intervalo de ip acessível para o ip fornecido:
+
+```
+sipcalc <ip>
+```
+
 2. descomentar o módulo argocd no main.tf
 
 ```
